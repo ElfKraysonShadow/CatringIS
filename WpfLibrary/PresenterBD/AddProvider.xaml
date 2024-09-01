@@ -1,0 +1,64 @@
+﻿<Window x:Class="WpfLibrary.PresenterBD.AddProvider"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLibrary.PresenterBD"
+        mc:Ignorable="d"
+        Title="AddProvider" Height="429" Width="300"
+        ResizeMode="NoResize" WindowState="Normal">
+    <Grid Height="417" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Название:"/>
+        <TextBox Grid.Row="1" x:Name="ProviderNameTextBox"/>
+
+        <Label Grid.Row="2" Content="Имя менеджера:"/>
+        <TextBox Grid.Row="3" x:Name="ManagerNameTextBox"/>
+
+        <Label Grid.Row="4" Content="Номер менеджера:"/>
+        <TextBox Grid.Row="5" x:Name="ManagerNumberTextBox"/>
+
+        <Label Grid.Row="6" Content="ИНН поставщика:"/>
+        <TextBox Grid.Row="7" x:Name="ProviderINNTextBox"/>
+
+        <Label Grid.Row="8" Content="Банк:"/>
+        <ComboBox Grid.Row="9" x:Name="BankNameComboBox"/>
+
+        <Label Grid.Row="10" Content="Банковский счет:"/>
+        <TextBox Grid.Row="11" x:Name="BankAccountTextBox"/>
+
+        <Label Grid.Row="12" Content="Адрес:"/>
+        <ComboBox Grid.Row="13" x:Name="FullAddressComboBox">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <Run Text="{Binding Street}" />
+                        <Run Text=", " />
+                        <Run Text="{Binding HouseNumber}" />
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button Grid.Row="14" Content="Добавить" Click="AddProviderButton_Click" Margin="10"/>
+        <Button Grid.Row="15" Content="Отмена" Click="CancelButton_Click" Margin="10"/>
+    </Grid>
+</Window>

@@ -1,0 +1,54 @@
+﻿<Window x:Class="WpfLibrary.PresenterBD.AddRecipe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLibrary.PresenterBD"
+        mc:Ignorable="d"
+        Title="AddRecipe" Height="358" Width="300"
+        ResizeMode="NoResize" WindowState="Normal">
+    <Grid Height="400" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Название продукта:"/>
+        <ComboBox Grid.Row="1" x:Name="FoodNameComboBox"/>
+
+        <Label Grid.Row="2" Content="Ингредиенты:"/>
+        <ComboBox Grid.Row="3" x:Name="IngredientNameComboBox" Margin="10" IsEditable="True" Text="Выберите Ингредиенты">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Ingredient.IngredientName}" Width="100"/>
+                        <StackPanel>
+                            <Label Content="Gross Weight:"/>
+                            <TextBox Width="50" Margin="5,0,0,0" Text="{Binding GrossWeight, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Net Weight:"/>
+                            <TextBox Width="50" Margin="5,0,0,0" Text="{Binding NetWeight, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Grid.Row="4" Content="Описание:"/>
+        <TextBox Grid.Row="5" x:Name="DescriptionTextBox" Height="100" TextWrapping="Wrap" AcceptsReturn="True"/>
+
+        <Button Grid.Row="6" Content="Добавить" Click="AddRecipeButton_Click" Margin="10"/>
+        <Button Grid.Row="7" Content="Отмена" Click="CancelButton_Click" Margin="10"/>
+    </Grid>
+</Window>

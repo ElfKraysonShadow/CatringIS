@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfLibrary.PresenterBD.AddSoldVolume"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLibrary.PresenterBD"
+        mc:Ignorable="d"
+        Title="AddSoldVolume" Height="215" Width="300"
+        ResizeMode="NoResize" WindowState="Normal">
+    <Grid Height="190" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Название продукта:"/>
+        <ComboBox Grid.Row="1" x:Name="FoodNameComboBox"/>
+
+        <Label Grid.Row="2" Content="Количество:"/>
+        <TextBox Grid.Row="3" x:Name="QuantityTextBox"/>
+
+        <Button Grid.Row="4" Content="Добавить" Click="AddSoldVolumeButton_Click" Margin="10"/>
+        <Button Grid.Row="5" Content="Отмена" Click="CancelButton_Click" Margin="10"/>
+    </Grid>
+</Window>

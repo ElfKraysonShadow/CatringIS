@@ -1,0 +1,44 @@
+﻿<Window x:Class="WpfLibrary.PresenterBD.AddApplication"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLibrary.PresenterBD"
+        mc:Ignorable="d"
+        Title="AddApplication" Height="282" Width="209"
+        ResizeMode="NoResize" WindowState="Normal">
+    <Grid Margin="0,0,0,13">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Отделение:"/>
+        <TextBox Grid.Row="1" x:Name="DepartmentNameTextBox"/>
+
+        <Label Grid.Row="2" Content="Дата:"/>
+        <DatePicker Grid.Row="3" x:Name="DatePicker"/>
+
+        <Label Grid.Row="4" Content="Ингредиенты:"/>
+        <ComboBox Grid.Row="5" x:Name="IngredientNameComboBox" Margin="10" IsEditable="True" Text="Выберите Ингредиенты">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Ingredient.IngredientName}" Width="100"/>
+                        <Label Content="Количество:"/>
+                        <TextBox Width="50" Margin="5,0,0,0" Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button Grid.Row="6" Content="Добавить" Click="AddApplicationButton_Click" Margin="10"/>
+        <Button Grid.Row="7" Content="Отмена" Click="CancelButton_Click" Margin="10"/>
+    </Grid>
+</Window>

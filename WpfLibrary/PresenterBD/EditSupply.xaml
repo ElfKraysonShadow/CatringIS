@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfLibrary.PresenterBD.EditSupply"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLibrary.PresenterBD"
+        mc:Ignorable="d"
+        Title="EditSupply" Height="210" Width="209"
+        ResizeMode="NoResize" WindowState="Normal">
+    <Grid Height="169" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Количество:"/>
+        <TextBox Grid.Row="1" x:Name="QuantityTextBox"/>
+
+        <Label Grid.Row="2" Content="Стоимость покупки:"/>
+        <TextBox Grid.Row="3" x:Name="PurnashePriceTextBox"/>
+
+        <Button Grid.Row="4" Content="Добавить" Click="EditSupplyButton_Click" Margin="10"/>
+        <Button Grid.Row="5" Content="Отмена" Click="CancelButton_Click" Margin="10"/>
+    </Grid>
+</Window>

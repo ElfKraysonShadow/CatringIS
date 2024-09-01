@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="PresenterBD\AddFood.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PresenterBD\AddRecipe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PresenterBD\AddSoldVolume.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PresenterBD\EditRecipe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PresenterBD\EditSupply.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PresenterBD\AddSupply.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PresenterBD\AddIngredient.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PresenterBD\AddProvider.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PresenterBD\AddApplication.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>
