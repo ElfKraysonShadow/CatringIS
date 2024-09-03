@@ -98,12 +98,15 @@ namespace WpfLibrary.PresenterBD
             if (_recipeIngredientGrid.SelectedItem != null)
             {
                 int index = _recipeIngredientGrid.SelectedIndex;
-                RecipeIngredientBd.RecipeIngredient selectedRecipe = _recipeIngredientBd.RecipeIngredientList[index];
-                EditRecipe editWindow = new EditRecipe(selectedRecipe);
-
+                RecipeIngredientBd.RecipeIngredient selectedRecipeIngredient = _recipeIngredientBd.RecipeIngredientList[index];
+                int recipeIndex = _recipeBd.RecipeList.FindIndex(r => r.RecipeID == selectedRecipeIngredient.RecipeID);
+                RecipeBd.Recipe selectedRecipe = _recipeBd.RecipeList[recipeIndex];
+                EditRecipe editWindow = new EditRecipe(selectedRecipeIngredient, BD);
                 if (editWindow.ShowDialog() == true)
                 {
+                    selectedRecipe.Description = editWindow.newDescription;
                     _recipeIngredientBd.UpdateRecipeIngredient(editWindow.recipeIngredient);
+                    _recipeBd.UpdateRecipe(selectedRecipe);
                     MessageBox.Show("Рецепт успешно изменен", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     SetItemSource();
                     _recipeIngredientGrid.Items.Refresh();
@@ -163,7 +166,7 @@ namespace WpfLibrary.PresenterBD
             var seenFoods = new HashSet<string>();
             var seenDecsriptions = new HashSet<string>();
 
-            var processedList = recipeIngredientList.Select(item =>
+            var processedList = filteredList.Select(item =>
             {
 
                 if (!seenIds.Contains(item.RecipeID))

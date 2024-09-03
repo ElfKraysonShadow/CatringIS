@@ -169,7 +169,7 @@ namespace WpfLibrary.PresenterBD
             var seenProviders = new HashSet<string>();
             var seenDates = new HashSet<DateTime>();
 
-            var processedList = supplyIngredientList.Select(item =>
+            var processedList = filteredList.Select(item =>
             {
 
                 if (!seenIds.Contains(item.SupplyID))

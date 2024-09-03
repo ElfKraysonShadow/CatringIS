@@ -186,6 +186,7 @@ namespace WpfLibrary.PresenterBD
 
                 return newItem;
             }).ToList();
+
             _applicationIngGrid.ItemsSource = processedList;
             _applicationIngGrid.Items.Refresh();
         }

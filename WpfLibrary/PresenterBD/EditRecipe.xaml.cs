@@ -21,9 +21,14 @@ namespace WpfLibrary.PresenterBD
     public partial class EditRecipe : Window
     {
         public RecipeIngredientBd.RecipeIngredient recipeIngredient;
+        private IngredientBd ingredientBd;
+        private RecipeBd recipeBd;
+        public string newDescription;
 
-        public EditRecipe(RecipeIngredientBd.RecipeIngredient spi)
+        public EditRecipe(RecipeIngredientBd.RecipeIngredient spi, string bd)
         {
+            ingredientBd = new IngredientBd(bd);
+            recipeBd = new RecipeBd(bd);
             InitializeComponent();
             recipeIngredient = spi;
             DisplayRecipeIngredientDetails();
@@ -34,6 +39,10 @@ namespace WpfLibrary.PresenterBD
             {
                 NetWeightTextBox.Text = Convert.ToString(recipeIngredient.NetWeight);
                 GrossWeightTextBox.Text = Convert.ToString(recipeIngredient.GrossWeight);
+                int recipeIndex = recipeBd.RecipeList.FindIndex(r => r.RecipeID == recipeIngredient.RecipeID);
+                DescriptionTextBox.Text = recipeBd.RecipeList[recipeIndex].Description;
+                int ingredientIndex = ingredientBd.IngredientList.FindIndex(i => i.IngredientID == recipeIngredient.IngredientID);
+                IngredientLabel.Content = "Ингредиент " + ingredientBd.IngredientList[ingredientIndex].IngredientName;
             }
         }
 
@@ -41,8 +50,8 @@ namespace WpfLibrary.PresenterBD
         {
             double netWeight;
             double grossWeight;
-
-            if (double.TryParse(NetWeightTextBox.Text, out netWeight) && double.TryParse(GrossWeightTextBox.Text, out grossWeight))
+            newDescription = DescriptionTextBox.Text;
+            if (double.TryParse(NetWeightTextBox.Text, out netWeight) && double.TryParse(GrossWeightTextBox.Text, out grossWeight) && !string.IsNullOrEmpty(newDescription))
             {
                 RecipeIngredientBd.RecipeIngredient newRecipeIngredient = new RecipeIngredientBd.RecipeIngredient
                 {

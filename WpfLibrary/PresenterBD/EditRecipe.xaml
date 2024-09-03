@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfLibrary.PresenterBD"
         mc:Ignorable="d"
-        Title="EditRecipe" Height="198" Width="209"
+        Title="EditRecipe" Height="337" Width="300"
         ResizeMode="NoResize" WindowState="Normal">
-    <Grid Height="172" VerticalAlignment="Center">
+    <Grid Margin="10,10,10,-6">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -17,13 +20,17 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Content="Масса нетто:"/>
-        <TextBox Grid.Row="1" x:Name="NetWeightTextBox"/>
+        <Label Grid.Row="0" Content="Описание:"/>
+        <TextBox Grid.Row="1" x:Name="DescriptionTextBox" Height="50" TextWrapping="Wrap" AcceptsReturn="True"/>
 
-        <Label Grid.Row="2" Content="Масса брутто:"/>
-        <TextBox Grid.Row="3" x:Name="GrossWeightTextBox"/>
+        <Label Grid.Row="2" x:Name="IngredientLabel" Margin="5"/>
+        <Label Grid.Row="3" Content="Масса нетто:"/>
+        <TextBox Grid.Row="4" x:Name="NetWeightTextBox"/>
 
-        <Button Grid.Row="4" Content="Добавить" Click="EditRecipeButton_Click" Margin="10"/>
-        <Button Grid.Row="5" Content="Отмена" Click="CancelButton_Click" Margin="10"/>
+        <Label Grid.Row="5" Content="Масса брутто:"/>
+        <TextBox Grid.Row="6" x:Name="GrossWeightTextBox"/>
+
+        <Button Grid.Row="7" Content="Добавить" Click="EditRecipeButton_Click" Margin="10"/>
+        <Button Grid.Row="8" Content="Отмена" Click="CancelButton_Click" Margin="10"/>
     </Grid>
 </Window>
